@@ -15,15 +15,29 @@
     <div class="container">
 
         <header class="header">
-            <div class="navBut"><i class="fas fa-bars" onclick="openSlideMenu()"></i></div>
-            <div class="playerName" id="p1Name"><h2>PLAYER ONE</h2></div>
-            <div class="playerScore" id="p1Score"><h2>0</h2></div>
-            <div class="playerName" id="p2Name"><h2>PLAYER TWO</h2></div>
-            <div class="playerScore" id="p2Score"><h2>0</h2></div>
+            <div class="navBut">
+                <i class="fas fa-bars" onclick="openSlideMenu()"></i>
+            </div>
+
+            <div class="playerName">
+                <h2 id="p1Dname">PLAYER ONE</h2>
+            </div>
+
+            <div class="playerScore" id="p1Score">
+                <h2>0</h2>
+            </div>
+
+            <div class="playerName">
+                <h2 id="p2Dname">PLAYER TWO</h2>
+            </div>
+
+            <div class="playerScore" id="p2Score">
+                <h2>0</h2>
+            </div>            
         </header>
 
         <div class="side-nav" id="side-menu">
-            
+
             <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
 
             <form action="submit">
@@ -55,7 +69,7 @@
             </form>
         </div>
 
-        <main class="main">
+        <main class="main" id="main">
             <aside>
                 <section class="titleArea">
                     <h1>John's Tic Tac Toe Game</h1>

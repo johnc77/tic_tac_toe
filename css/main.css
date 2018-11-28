@@ -19,6 +19,10 @@ body{
     padding: 1em 0;
 }
 
+.header h2{
+    text-transform: uppercase;
+}
+
 .playerName{
     flex-grow: 2;
     border: solid black 2px;
@@ -166,6 +170,7 @@ MAIN GAME BODY
     padding: 2rem;
     justify-items: center;
     align-items: center;
+    margin-left: 0;
 }
 
 .titleArea{
