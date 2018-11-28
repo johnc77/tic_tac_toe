@@ -15,24 +15,45 @@
     <div class="container">
 
         <header class="header">
-            <div class="navBut"><i class="fas fa-bars"></i></div>
+            <div class="navBut"><i class="fas fa-bars" onclick="openSlideMenu()"></i></div>
             <div class="playerName" id="p1Name"><h2>PLAYER ONE</h2></div>
             <div class="playerScore" id="p1Score"><h2>0</h2></div>
             <div class="playerName" id="p2Name"><h2>PLAYER TWO</h2></div>
             <div class="playerScore" id="p2Score"><h2>0</h2></div>
         </header>
 
-       <!--  <nav class="navSlider">
-            <ul>
-                <li>PLAYER ONE NAME</li>
-                <li><input type="text" id="p1name"><button type="submit"></button></li>
-                <li>PLAYER TWO NAME</li>
-                <li><input type="text" id="p2name"><button type="submit"></button></li>
-                <li>COMPUTER PLAYER</li>
-                <li>SOUND EFFECTS</li>
-            </ul>
-        </nav> -->
+        <div class="side-nav" id="side-menu">
+            
+            <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
 
+            <form action="submit">
+
+                <span class="menu-text">PLAYER ONE NAME</span>
+                <input type="text" id="p1name" class="text-input"><input type="button" value="Submit" onclick="playerOneName()" class="sub-btn">
+                <br></br>
+
+                <span class="menu-text">PLAYER TWO NAME</span>
+                <input type="text" id="p2name" class="text-input"><input type="button" value="Submit" onclick="playerTwoName()" class="sub-btn">
+                <br></br>
+
+                <span class="menu-text">PLAY COMPUTER?</span>
+                <span class="mylabel">
+                    <input type="checkbox" id="p2comp">
+                    <div class="slidingGrove"></div>
+                    <label for="p2comp" name="slider" class="mylabel"></label>
+                </span>
+                <br></br>
+
+                <span class="menu-text">PLAY SOUNDS?</span>
+                <span class="mylabel">
+                    <input type="checkbox" id="sounds" checked>
+                    <div class="slidingGrove"></div>
+                    <label for="sounds" name="slider" class="mylabel"></label>
+                </span>
+
+
+            </form>
+        </div>
 
         <main class="main">
             <aside>

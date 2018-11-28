@@ -26,7 +26,6 @@ body{
     border-radius: 2em;
     justify-self: flex-end;
     background-color: goldenrod;
-    box-shadow: 
 }
 
 .playerScore{
@@ -46,21 +45,119 @@ body{
 
 /* ======================================
 
-CHECK OUT SCROLLING SIDEBAR VIDEO ON TRAV. MEDIA
+SCROLLING SIDEBAR MENU
 
 =========================================*/
 
-/* .navSlider{
-    width: 20%;
-    height: 100vh;
+.side-nav{
+    height: 100%;
+    width: 0px;
+    position: fixed;
+    z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgba(17, 17, 17, 0.7)
+    background-color: #111;
+    opacity: 0.9;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    padding-left: 15px;
 }
 
-ul{
-    padding: 0;
-} */
+.side-nav a{
+    padding: 10px 10px 10px 30px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #ccc;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-nav a:hover{
+    color:#fff;
+}
+
+.side-nav .btn-close{
+    position: absolute;
+    top: 0;
+    right: 22px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* ========================================
+
+MENU OPTIONS AND INPUTS
+
+===========================================*/
+
+.menu-text{
+    color: white;
+    font-size: 1.5em;
+}
+
+.text-input{
+    height: 2em;
+    width: 220px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.sub-btn{
+    margin-left:20px;
+    height: 2.2em;
+    cursor: pointer;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.mylabel {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 20px;
+}
+
+.mylabel input {
+    display: none;
+}
+
+.slidingGrove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #ababab;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.slidingGrove::after {
+    position: absolute;
+    content: "";
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    top: 2px;
+    left: 2px;
+    transition: all 0.3s ease;
+}
+
+input:checked + .slidingGrove{
+    background: #5fc580;
+}
+
+input:checked + .slidingGrove::after{
+    transform: translateX(20px);
+}
+
+/* =========================================== 
+
+MAIN GAME BODY
+
+==============================================*/
 
 .main {
     display: grid;
