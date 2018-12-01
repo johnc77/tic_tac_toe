@@ -173,6 +173,10 @@ MAIN GAME BODY
     margin-left: 0;
 }
 
+.aside{
+    display: flex;
+    flex-direction: column;
+}
 .titleArea{
     border: solid black 2px;
     text-align: center;
@@ -187,6 +191,17 @@ MAIN GAME BODY
     border-radius: 1em;
     margin-bottom: 30vh;
 }
+
+#start{
+    padding: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+/* =======================================
+
+GAME PLAY AREA
+
+==========================================*/
 
 .gameGrid{
     display: grid;
