@@ -21,6 +21,16 @@ const soundEffects = document.querySelector('#sounds');
 const messageBoard = document.getElementById('messageBoard');
 const startGameBtn = document.getElementById('start');
 
+const cellOne = document.getElementById('sectionOne');
+const cellTwo = document.getElementById('sectionTwo');
+const cellThree = document.getElementById('sectionThree');
+const cellFour = document.getElementById('sectionFour');
+const cellFive = document.getElementById('sectionFive');
+const cellSix = document.getElementById('sectionSix');
+const cellSeven = document.getElementById('sectionSeven');
+const cellEight = document.getElementById('sectionEight');
+const cellNine = document.getElementById('sectionNine');
+
 /* FLAGS */
 
 let playerOne = {
@@ -36,6 +46,7 @@ let computerPlayer = false;
 let currentPlayer = "";
 let playerOneMoves = [];
 let playerTwoMoves = [];
+let totalMoves = [];
 let freeSquares = [1,2,3,4,5,6,7,8,9];
 const winningCombo = [
     [1,2,3],
@@ -47,6 +58,16 @@ const winningCombo = [
     [1,5,9],
     [3,5,7]
 ];
+
+let firstClickOne = true;
+let firstClickTwo = true;
+let firstClickThree = true;
+let firstClickFour = true;
+let firstClickFive = true;
+let firstClickSix = true;
+let firstClickSeven = true;
+let firstClickEight = true;
+let firstClickNine = true;
 
 
 
@@ -105,17 +126,30 @@ function updateDisplayTurn(player){
 function updateCurrentPlayer(){
     if(currentPlayer == "") {
         currentPlayer = playerOne;
-    } else if(currentPlayer == "playerOne"){
+    } else if(currentPlayer == playerOne){
         currentPlayer = playerTwo;
     } else {
         currentPlayer = playerOne;
     }
 }
 
-function newGame(){
+function activateCells(){
+    cellOne.style.cursor = 'pointer';
+    cellTwo.style.cursor = 'pointer';
+    cellThree.style.cursor = 'pointer';
+    cellFour.style.cursor = 'pointer';
+    cellFive.style.cursor = 'pointer';
+    cellSix.style.cursor = 'pointer';
+    cellSeven.style.cursor = 'pointer';
+    cellEight.style.cursor = 'pointer';
+    cellNine.style.cursor = 'pointer';
+}
+
+    function newGame(){
     playerOneMoves = [];
     playerTwoMoves = [];
     freeSquares = [1,2,3,4,5,6,7,8,9]; 
+    activateCells();
 }
 
 function newTurn(){
@@ -124,3 +158,193 @@ function newTurn(){
     console.log(playerOne.name);  
     updateDisplay(currentPlayer);
 }
+
+function checkDraw(){
+    if (totalMoves.length == 9){
+        messageBoard.innerHTML = 'GAME DRAW';
+        console.log('DRAW');
+        
+    } else {
+        newTurn();
+    }
+}
+
+function checkWin(playerMovesArr) {
+    for (let i = 0; i < winningCombo.length; i++) {
+        if (winningCombo[i].every(item => playerMovesArr.indexOf(item) !== -1)) {
+            messageBoard.innerHTML = 'WINNER';
+            console.log('WINNER');
+            
+        }
+    }
+    checkDraw();
+};
+
+
+
+function takeTurnOne(){
+    if(firstClickOne === true){
+        cellOne.style.cursor = "";
+        firstClickOne = false;
+            if(currentPlayer == playerOne){
+                playerOneMoves.push(1);
+                totalMoves.push(1);
+                cellOne.innerHTML = 'X';
+                checkWin(playerOneMoves);
+            } else {
+                playerTwoMoves.push(1);
+                totalMoves.push(1);
+                cellOne.innerHTML = 'O';
+                checkWin(playerTwoMoves);
+        };
+    }       
+};
+    
+    
+function takeTurnTwo(){
+    if(firstClickTwo === true){
+        cellTwo.style.cursor = "";
+        firstClickTwo = false;
+            if(currentPlayer == playerOne){
+                playerOneMoves.push(2);
+                totalMoves.push(2);
+                cellTwo.innerHTML = 'X';
+                checkWin(playerOneMoves);
+            } else {
+                playerTwoMoves.push(2);
+                totalMoves.push(2);
+                cellTwo.innerHTML = 'O';
+                checkWin(playerTwoMoves);
+        };
+    }
+};
+
+
+function takeTurnThree(){
+    if(firstClickThree === true){
+        cellThree.style.cursor = "";
+        firstClickThree = false;
+            if(currentPlayer == playerOne){
+                playerOneMoves.push(3);
+                totalMoves.push(3);
+                cellThree.innerHTML = 'X';
+                checkWin(playerOneMoves);
+            } else {
+                playerTwoMoves.push(3);
+                totalMoves.push(3);
+                cellThree.innerHTML = 'O';
+                checkWin(playerTwoMoves);
+        };        
+    }
+};
+
+
+
+function takeTurnFour(){
+    if(firstClickFour === true){
+        cellFour.style.cursor = "";
+        firstClickFour = false;
+            if(currentPlayer == playerOne){
+                playerOneMoves.push(4);
+                totalMoves.push(4);
+                cellFour.innerHTML = 'X';
+                checkWin(playerOneMoves);
+            } else {
+                playerTwoMoves.push(4);
+                totalMoves.push(4);
+                cellFour.innerHTML = 'O';
+                checkWin(playerTwoMoves);
+        };        
+    }
+};
+
+function takeTurnFive(){
+    if(firstClickFive === true){
+        cellFive.style.cursor = "";
+        firstClickFive = false;
+            if(currentPlayer == playerOne){
+                playerOneMoves.push(5);
+                totalMoves.push(5);
+                cellFive.innerHTML = 'X';
+                checkWin(playerOneMoves);
+            } else {
+                playerTwoMoves.push(5);
+                totalMoves.push(5);
+                cellFive.innerHTML = 'O';
+                checkWin(playerTwoMoves);
+            };
+        
+    }
+};
+
+function takeTurnSix(){
+    if(firstClickSix === true){
+        cellSix.style.cursor = "";
+        firstClickSix = false;
+            if(currentPlayer == playerOne){
+                playerOneMoves.push(6);
+                totalMoves.push(6);
+                cellSix.innerHTML = 'X';
+                checkWin(playerOneMoves);
+            } else {
+                playerTwoMoves.push(6);
+                totalMoves.push(6);
+                cellSix.innerHTML = 'O';
+                checkWin(playerTwoMoves);
+        };        
+    }
+};
+
+function takeTurnSeven(){
+    if(firstClickSeven === true){
+        cellSeven.style.cursor = "";
+        firstClickSeven = false;
+            if(currentPlayer == playerOne){
+                playerOneMoves.push(7);
+                totalMoves.push(7);
+                cellSeven.innerHTML = 'X';
+                checkWin(playerOneMoves);
+            } else {
+                playerTwoMoves.push(7);
+                totalMoves.push(7);
+                cellSeven.innerHTML = 'O';
+                checkWin(playerTwoMoves);
+        };        
+    }
+};
+
+function takeTurnEight(){
+    if(firstClickEight === true){
+        cellEight.style.cursor = "";
+        firstClickEight = false;
+            if(currentPlayer == playerOne){
+                playerOneMoves.push(8);
+                totalMoves.push(8);
+                cellEight.innerHTML = 'X';
+                checkWin(playerOneMoves);
+            } else {
+                playerTwoMoves.push(8);
+                totalMoves.push(8);
+                cellEight.innerHTML = 'O';
+                checkWin(playerTwoMoves);
+        };        
+    }
+};
+
+function takeTurnNine(){
+    if(firstClickNine === true){
+        cellNine.style.cursor = "";
+        firstClickNine = false;
+            if(currentPlayer == playerOne){
+                playerOneMoves.push(9);
+                totalMoves.push(9);
+                cellNine.innerHTML = 'X';
+                checkWin(playerOneMoves);
+            } else {
+                playerTwoMoves.push(9);
+                totalMoves.push(9);
+                cellNine.innerHTML = 'O';
+                checkWin(playerTwoMoves);
+        };        
+    }
+};

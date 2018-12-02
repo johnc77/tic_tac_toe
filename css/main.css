@@ -231,8 +231,7 @@ GAME PLAY AREA
     text-align: center;
     padding: 0;
     margin: 0;
-    cursor: pointer;
-    content: "";
+    cursor: "";
 }
 
 #sectionTwo{
@@ -241,7 +240,7 @@ GAME PLAY AREA
     text-align: center;
     padding: 0;
     margin: 0;
-    cursor: pointer;
+    cursor: "";
 }
 
 #sectionThree{
@@ -250,7 +249,7 @@ GAME PLAY AREA
     text-align: center;
     padding: 0;
     margin: 0;
-    cursor: pointer;
+    cursor: "";
 }
 
 #sectionFour{
@@ -259,7 +258,7 @@ GAME PLAY AREA
     text-align: center;
     padding: 0;
     margin: 0;
-    cursor: pointer;
+    cursor: "";
 }
 
 #sectionFive{
@@ -268,7 +267,7 @@ GAME PLAY AREA
     text-align: center;
     padding: 0;
     margin: 0;
-    cursor: pointer;
+    cursor: "";
 }
 
 #sectionSix{
@@ -277,7 +276,7 @@ GAME PLAY AREA
     text-align: center;
     padding: 0;
     margin: 0;
-    cursor: pointer;
+    cursor: "";
 }
 
 #sectionSeven{
@@ -286,7 +285,7 @@ GAME PLAY AREA
     text-align: center;
     padding: 0;
     margin: 0;
-    cursor: pointer;
+    cursor: "";
 }
 
 #sectionEight{
@@ -295,7 +294,7 @@ GAME PLAY AREA
     text-align: center;
     padding: 0;
     margin: 0;
-    cursor: pointer;
+    cursor: "";
 }
 
 #sectionNine{
@@ -304,7 +303,7 @@ GAME PLAY AREA
     text-align: center;
     padding: 0;
     margin: 0;
-    cursor: pointer;
+    cursor: "";
 }
 
 .footer{
