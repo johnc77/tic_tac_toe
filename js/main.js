@@ -20,6 +20,9 @@ const playerNameTwo = document.getElementById('p2name');
 const soundEffects = document.querySelector('#sounds');
 const messageBoard = document.getElementById('messageBoard');
 const startGameBtn = document.getElementById('start');
+const playerOneScoreDisplay = document.getElementById('p1Score');
+const playerTwoScoreDisplay = document.getElementById('p2Score');
+
 
 const cellOne = document.getElementById('sectionOne');
 const cellTwo = document.getElementById('sectionTwo');
@@ -58,6 +61,8 @@ const winningCombo = [
     [1,5,9],
     [3,5,7]
 ];
+let playerOneScore = 0;
+let playerTwoScore = 0;
 
 let firstClickOne = true;
 let firstClickTwo = true;
@@ -68,6 +73,8 @@ let firstClickSix = true;
 let firstClickSeven = true;
 let firstClickEight = true;
 let firstClickNine = true;
+
+let startClicked = false;
 
 
 
@@ -105,14 +112,23 @@ compPlayerBtn.addEventListener('click', (event) => {
 //sets listener for start game button
 
 startGameBtn.addEventListener ('click', (event) => {
-    newGame();
-    newTurn();
+    if(startClicked == false){
+        newGame();
+        newTurn();
+        startClicked = true;
+    } else {
+        reset();
+        newGame();
+        newTurn();
+        activateCells();
+        startClicked = false;
+    }
 })
 /* GAME FUNCTIONS */
 
 function updateDisplay(player){
     messageBoard.innerHTML = player.name + " READY?";
-    setTimeout(updateDisplayTurn(currentPlayer), 2000);
+    // setTimeout(updateDisplayTurn(currentPlayer), 2000);
 }
 
 function updateDisplayTurn(player){
@@ -154,9 +170,9 @@ function activateCells(){
 
 function newTurn(){
     updateCurrentPlayer();
-    console.log(currentPlayer);
-    console.log(playerOne.name);  
+    console.log('Update player called');
     updateDisplay(currentPlayer);
+    console.log('update display called');  
 }
 
 function checkDraw(){
@@ -169,18 +185,66 @@ function checkDraw(){
     }
 }
 
-function checkWin(playerMovesArr) {
-    for (let i = 0; i < winningCombo.length; i++) {
-        if (winningCombo[i].every(item => playerMovesArr.indexOf(item) !== -1)) {
-            messageBoard.innerHTML = 'WINNER';
-            console.log('WINNER');
-            
-        }
-    }
-    checkDraw();
+function draw(){
+    messageBoard.innerHTML = 'GAME DRAW';
+    console.log('checkdraw called');
+}
+
+function checkWin(playerMovesArr){
+    if (check(playerMovesArr) == true) {
+        return winner();
+    } else if (totalMoves.length == 9) {
+        return draw();
+    } else {
+        return newTurn();
+}
 };
 
 
+function check(playerMovesArr) {
+    for (let i = 0; i < winningCombo.length; i++) {
+        if (winningCombo[i].every(item => playerMovesArr.indexOf(item) !== -1)) {
+            return true;
+        }
+    }
+    return false;
+};
+
+function winner() {
+        cellOne.style.cursor = "";
+        firstClickOne = false;
+        cellTwo.style.cursor = "";
+        firstClickTwo = false;
+        cellThree.style.cursor = "";
+        firstClickThree = false;
+        cellFour.style.cursor = "";
+        firstClickFour = false;
+        cellFive.style.cursor = "";
+        firstClickFive = false;
+        cellSix.style.cursor = "";
+        firstClickSix = false;
+        cellSeven.style.cursor = "";
+        firstClickSeven = false;
+        cellEight.style.cursor = "";
+        firstClickEight = false;
+        cellNine.style.cursor = "";
+        firstClickNine = false;
+        
+        messageBoard.innerHTML = 'WINNER';
+        
+        if (currentPlayer == 'playerOne'){
+            playerOneScore++
+        } else {
+            playerTwoScore++
+        }
+
+        updateScore();
+};
+
+function updateScore() {
+    playerOneScoreDisplay.innerHTML = playerOneScore;
+    playerTwoScoreDisplay.innerHTML = playerTwoScore;
+};
 
 function takeTurnOne(){
     if(firstClickOne === true){
@@ -191,11 +255,15 @@ function takeTurnOne(){
                 totalMoves.push(1);
                 cellOne.innerHTML = 'X';
                 checkWin(playerOneMoves);
+                console.log('checkwin called p1');
+                
             } else {
                 playerTwoMoves.push(1);
                 totalMoves.push(1);
                 cellOne.innerHTML = 'O';
                 checkWin(playerTwoMoves);
+                console.log('checkwin called p2');
+                
         };
     }       
 };
@@ -348,3 +416,21 @@ function takeTurnNine(){
         };        
     }
 };
+
+function reset(){
+    newGame();
+    newTurn();
+    clearCells();
+}
+
+function clearCells(){
+    cellOne.innerHTML = "";
+    cellTwo.innerHTML = "";
+    cellThree.innerHTML = "";
+    cellFour.innerHTML = "";
+    cellFive.innerHTML = "";
+    cellSix.innerHTML = "";
+    cellSeven.innerHTML = "";
+    cellEight.innerHTML = "";
+    cellNine.innerHTML = "";
+}
